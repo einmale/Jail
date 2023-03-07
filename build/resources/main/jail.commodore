@@ -1,0 +1,23 @@
+jail {
+    help;
+    remain;
+    list;
+    create {
+        name brigadier:string single_word;
+    }
+    remove {
+        name brigadier:string single_word;
+    }
+    send {
+        user brigadier:string single_word {
+            jail brigadier:string single_word {
+                time brigadier:integer {
+                    reason brigadier:string greedy_phrase;
+                }
+            }
+        }
+    }
+    release {
+        user brigadier:string single_word;
+    }
+}
