@@ -56,7 +56,17 @@ public class ReleaseCommand implements SubCommand {
         HashMap<String, Long> map = this.lite.getAllPrisoners("jail_players");
 
         for (String s : map.keySet()) {
-            if (Bukkit.getOfflinePlayer(UUID.fromString(s)).getName().equalsIgnoreCase(args[0])) {
+            if (s.equals(args[0])) {
+                targetUUID = s;
+                break;
+            }
+
+            UUID convertedUUID = UUID.fromString(s);
+            OfflinePlayer player = Bukkit.getOfflinePlayer(convertedUUID);
+            if (!player.hasPlayedBefore()) {
+                continue;
+            }
+            if (player.getName().equalsIgnoreCase(args[0])) {
                 targetUUID = s;
                 break;
             }

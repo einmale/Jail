@@ -11,6 +11,7 @@ import me.lucko.commodore.CommodoreProvider;
 import me.lucko.commodore.file.CommodoreFileReader;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
@@ -143,7 +144,13 @@ public class JailCommand implements CommandExecutor, TabExecutor {
                     }
 
                     for (String s : map.keySet()) {
-                        completions.add(Bukkit.getOfflinePlayer(UUID.fromString(s)).getName());
+                        OfflinePlayer player = Bukkit.getOfflinePlayer(UUID.fromString(s));
+                        String form = player.getName();
+
+                        if (!player.hasPlayedBefore()) {
+                            form = s;
+                        }
+                        completions.add(form);
                     }
 
                     return completions;

@@ -27,12 +27,14 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
-    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
 
     implementation("me.lucko:commodore:2.2")
 }
 
 shadowJar {
+    archiveClassifier = ""
+
     dependencies {
         exclude(dependency('com.mojang:brigadier'))
     }
