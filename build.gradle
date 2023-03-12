@@ -13,8 +13,8 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-group 'io.github.devcomi'
-version '1.0'
+group 'kr.kro.mygaran'
+version '1.0.1'
 
 repositories {
     mavenCentral()

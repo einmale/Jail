@@ -1,6 +1,6 @@
 name: Jail
-main: io.github.devcomi.jail.Main
-version: 1.0
+main: kr.kro.mygaran.jail.Main
+version: 1.0.0
 api-version: 1.19
 
 commands:
